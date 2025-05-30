@@ -1,0 +1,25 @@
+requirements:
+    a mainframe comuter
+    Z Os oprating system
+    a monitor & Keyboard
+
+Mainframe like softwares:
+    Hercules - S/370 mainframe
+    MVS Turnkey = Hercules + OS
+
+    OS/VS2 is free OS for mainframe, free version  for ZOS which is licensed
+
+>tso
+user: herc01
+password:cul8tr
+
+command: tsoappls
+fn- F3 key
+logoff
+shutdown
+
+to connect to mainframe:
+1. IP address
+2. Port
+3. username
+4. password
