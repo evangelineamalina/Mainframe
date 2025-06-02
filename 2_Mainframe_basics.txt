@@ -23,3 +23,18 @@ to connect to mainframe:
 2. Port
 3. username
 4. password
+
+for ubuntu
+>sudo apt-get install c3270
+>c33270 localhost:3270
+>c3270 --version 
+
+to connect to your mainframe system from ununtu:
+>c3270 <IP>:23 
+>logon <username>
+> <password>
+
+to logoff:
+press f3 key
+>logoff
+

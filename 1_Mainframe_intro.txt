@@ -1,0 +1,32 @@
+> can run millions of instructions per second (MIPS)
+> Highly secured, process large workloads , continuous availability
+> Can process multiple jobs , users at a time
+> Used for large transactions
+> Greater security & availability
+> recent mainframes are a size of a refrigeratoe
+
+features: (RAS)
+> reliability
+> availability
+> seviceable
+> Scalable
+> compatibility
+
+> can run multiple OS at the same time
+> Os that runs on system 360 s/360 is called OS/360
+> current version of mainframe is Z system , which runs on z/OS
+
+
+languages in mainframe
+> JCL (Job Control Languate) - it's a scripting language
+> Application languages- COBOL, FOTRAN, C, C++, JAVA, REXX
+> CICS (Customer Information Control Syatem)- front end for mainframe   
+> Databses -- DB2, IMS
+> File Access methos- VSAM
+> OS -> Z/ OS, Linux
+
+Data processing:
+> Batch processing -- written in JCL 
+    execution of a series of program without manual intervention
+    runs during the batch window
+> Online transaction processing(OLTP) -- CICS is used for OLTP 

@@ -1,0 +1,67 @@
+Time Sharing Operation (TSO)
+    - Allow multiple users to logon and use simultaneosly
+
+
+RACF -> Resource Access control Facility 
+    keep the mainfraem system secure
+
+example commands:
+ > Date 
+ > status 
+ > send 'hello evan' user(herc01)
+
+
+ Dataset - a file on a mainframe is called a dataset
+ > allocate dataset(a.jcl) .. .. ...
+ rename the dataset
+ > rename 'a.jcl' 'b.jcl'
+ edit the dataset
+ > edit 'a.jcl' cobol
+ lit the properties of a dataset
+ > listds 'a.jcl'
+ list the files allocated
+ > listalc
+ list dataset
+ >listtds
+ delete a file
+ > delete <filename>
+
+ To Interrupt a command
+ CTRL + A
+
+ TSO operating modes:
+ 1. foreground mode:
+    - line by line mode (starts with "READY" in screen)
+    - Full screen mode
+        give a cmd to start a fulls creen ie : ispf / omvs
+
+ 2. background mode:
+
+ Execute TSO commands:
+ READY
+ ISPF option 6
+ ISPF command line(prefix with 'tso' <cmd> )
+
+ TSO subcommands:
+ >edit <dataset_name> old cntl 
+
+ list --> display thr contents
+
+ save --> save the inputs typed
+
+ end --> finish the edit
+
+
+ Help in TSO
+ > help rename
+ > help delete
+
+ MVS used for hands-on does not have ISPF. ISPF is only available in real mainframe with Z /OS
+
+
+ ISPF --> 
+    - Interactive Service Provider Facility
+    - Executed Native TSo commands with options in the screen
+    - END --> to go back to previous screen from ISPF
+    - PF keys are function keys in ISPF
+
