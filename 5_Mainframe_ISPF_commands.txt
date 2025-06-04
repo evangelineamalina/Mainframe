@@ -1,0 +1,71 @@
+ISPF Commands:
+start
+split
+file oprations commands in edit mode
+ - fine <string>
+ - change <this> <that>  
+ - sort 8 10 a 
+ - sort 8 10 d 
+ - res  -- reset the changes
+ - in edit mode, type 'cc' in the left corner to cut the code and in comend assign to a clip word "cut code1"
+ - open anothr file in edit mode and add "a" infront , in commands "paster code1" . code1 will be paster after the ine where "a" is added
+ - 'cut display' to view the clip words and delete it if needed
+ - 'x' infrom of lines and in command "delete all x" will delete al the excluded line sin the file
+ - "delete all nx" will delete all the data
+
+Navigating in the dataset
+ - up 
+ - down
+ - left
+ - right
+ - right m 
+ - left m  - extreme left 
+ - down 3  - scroll dow 3 lines 
+ - "keys" to display the function keys assigned for the above operations 
+ - Scroll "csr" - t move from the cursor location 
+ - "locate 50" to go to row #50
+
+view the datasets info:
+Space view "vs"
+Volume view "vv"
+attribute view "va"
+total view "vt"
+
+Inser a line:
+- in edit mode "i" . "i4" will inser 4 lines
+deleting a line
+- edit mode "d". "d4" will delete 4 lines . "dd" content "dd" --> block delete all lines inbetween 
+repeat a line
+- edit mode "r". "r7" will repat a line 7 times. 
+copy & move
+- edit mode "c" infrom of line to copy & "a" paste after the line it has to get copied. "b" to paste before a line
+- "c4" to copy 4 lines and "a"/"b" to paste. "cc" content "cc" --> for block copy 
+- "m" to move the line. "mm" content "mm" --> for block move
+exclude 
+- "x" . "xx" "x7"
+show an excluded line
+- "s" "s7"
+first & last command:
+- "f" to show frst line. "f2" to show first 2 lines.
+- "l" to display last line. "l3" to display last 3 lines
+uppercase / lowercase command
+- "uc"  for converting the line to uppercase . "uc5" . "ucc" content "ucc" --> block uppercase
+- "lc" for converting the line to lowercase. lc5" . "lcc" content "lcc" --> block lowercase
+text split 
+- split the text "ts". "ts4" split the text ans insert 4 lines inbetween 
+
+"hx" -> shpw hexadecimal value of a line
+>"hex off" to hide the hexa value 
+"cols" to show the columns
+column shifr
+")" column shoft command to shift the column right . ")8". "))" content "))8" block move right for 8 columns
+"(" left shift same as above . data loss will be there is we move too much outside
+data shift
+- ">" move date to right . ">8".">>" content ">>8" block move. 
+- "<" same as above for left data shift. no data loss. only error will occur
+make dataline command:
+- "md" -> convert a line(which will be removed while running "reset" ) into a dataline. "md6" / "mdd" -block dataline
+   - can convert "message" "columns" and "notes" into a dataline in dataset
+
+mask command:
+"mask" -> to inser a line automatically whenever a new line is created

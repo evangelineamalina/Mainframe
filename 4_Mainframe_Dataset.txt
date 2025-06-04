@@ -1,0 +1,91 @@
+Dataset:
+ - its a record , specific portion is called field
+ - in z OS , files are record-oriented
+ - CR/LF not required in Z/oS
+
+Dataset naming rules
+ - qualifiers 
+    eg: evan.prod.file --> 3 qualifiers.
+    shd not end with .
+    shd not contain an _
+    shd not start with numerics
+    shd not be more than 8 characters
+    shd have only #$@ special characters
+    shd have only the lenght of 44 including .
+
+to create a dataset
+1. logon
+2. tso
+3. option 3 -> utilities
+4. option 2- dataset 
+5. A -- for allocating
+
+naming conventions:
+Project.Group.Type
+type:
+ - jcl/job/cntl - jcl jobs
+ - coblib - cobal library
+ - proclib/proc/prc - procedures
+ - loadlib - exdcutables
+
+Types of dataset:
+- physical sequence (PS)
+- partition (PDS)
+- partition data set extended 
+- Generation Data Group (GDG)
+- VSAM Datset- PS can be accessed only sequencially, to overcome that we have VSAM 
+
+PS - file
+PDS - folder
+
+Create new PS & PDS
+- Logical record lenght 
+    eg: name,+ mobile #,+ age =88
+- Block size
+    eg: if given 88, then only 1 record will be read, if 88*10=880, then 10 records will be read at a time
+- Space
+    - primary quantity = space durig dataset allocation eg: 10
+    - secondary quantity = when primary is filled , then secondary will be allocated for 15 times
+- Space unit - KB (T, C, B)
+- Average record lenght- (M, K, U)
+- Record format - fb(fixed block) ie: every line is same length
+- Directory Blocks- 0 means ps , non-zero value means its a directory
+- Dataset name type - blank for PS /  PDS / LIBRARY for PDSE 
+
+create a dataset:
+>allocate dataset(test.evan.ps) tracks space(2,1) recfm(f) lrecl(80) dsorg(ps)
+list the file:
+>listds test.evan.ps
+
+evan.test.jcl
+evan.testcopy.jcl
+
+COPY:
+copy dataset from ps to ps
+ - COpy the dataset from one to another means, the contents just gets appended.
+copy dataset frok ps to PDS
+ - cannot append to the existing member, only have to create a new member to copy from ps to pds. 
+ - have to enable the / replace member option 
+ - cannot append content from ps to pds
+copy from pds to ps
+ - data gets appended at the dest ps file 
+copy from pds to pds member
+  - has to be replaced or has to be copied to new member
+
+MOVE:
+ps to ps
+  - dataset got appended from source to dest. Source file gets deleted
+ps to pds
+  - can be replaced & not appended (same as copy)
+
+Compare files:
+compare extended:
+
+Search Datsets:
+ - search for a file with a qulaifier name 
+ - serach for data inside a dataset 
+
+Edit/View/Browse datasets
+edit- edit & save  "e" in front of dataset 
+View- Edit but can't save "v" in front of dataset 
+browse - obly view "b" in front of dataset 
