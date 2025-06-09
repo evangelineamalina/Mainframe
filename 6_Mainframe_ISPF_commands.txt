@@ -1,0 +1,71 @@
+Refrsh ISPF list
+- command: refresh
+append:
+- add dataset to a dataset list during search
+        append "file.*"
+exclude :
+- hide datset with specific name
+     exclude <name> all
+sort:
+- by default sorted by alphabetically.
+   sort volume  a/d
+   sort tracks  a/d
+
+Search for a member
+- mem <name_of_dataset>
+
+save:
+- save a list of file/program/members from a pds file  in to a ps file
+  search with options 4.4 and in the command type below
+  >save myprograms
+
+confirm:
+- usually deletion asks for confirmation, we can skip that ny giving:
+    > confirm off
+- remove that by:
+    > confirm off
+
+reset:
+- in the dataset edit mode, ig you hide some lines for debuggind, re-enable that by running command "reset"
+
+LC command;
+- to change the colour/display features of the list
+
+SRCHFOR command:
+- In the list of memebrs inside a PDS, search for a string. File which have that string will be listed
+  > srchfor <mystring>
+  - can search for the string in multiple pds
+- can also search for hexadecimanl string
+    > srchfor x'40'
+
+ISPF transaction logs
+option 7.5
+
+advance commands in dataset edit mode
+    - in the edit mode of Dataset, even if you leave the page by f3, changes will get saved
+    > auto save on 
+    > caps on --> alwasy save on caps mode
+    > recovery on / off  
+    > undo --> undo the changes 
+    > hex on/off --> turn on hexadecimal value 
+    > hilite cobol/asm/c --> to highlight the specific code in the dataset 
+    > profile --> to see the status of all the commands for the dataset 
+
+    Retrieve command:
+    -> keys --> assign a key to retrieve command
+        --> to see the history of last executed commands
+    nretrieve --> gives the last pds that we accessed
+
+    compress a PDS 
+    - if we delete a member in a PDS, the space oocupied by the member will not get released. So, give the option "z" in frontof the PDS to compress/release the deleted file's space 
+    - compress is only for PDS and not for ps. It frees all the mpty space
+
+    PDSE
+    - for allocating a PDSE, just give the "Data set name type" as "LIBRARY" during allocation
+    - PDSE manages the space automatically, no need to compress like PDS
+    - to create a new PDS member from a aexisting member, goto edit mode in the existing DS , select the lines where you want to copy in the new file and in command"
+        >create newmember
+    - to copy all the lines from a current member to new member
+        > create .zf .zl newmember
+
+    - if you don't know the commands for a the member sin a PDS, just give "/", it will show the list of commands for the members

@@ -1,0 +1,80 @@
+JCL - Job Control language / use to run batch processes 
+statements:
+    - Job -> job info/programmer name/ID
+    - EXEC -> program/procedure
+    - DD -> filed to be used 
+parameters:
+    - positional -> shd be coded in specified order/position
+    - keyword -> can be in any order
+
+JCL syntax:
+- shd be in a DS of record lenght 80
+- shd be in upper case - so give "caps on"
+- name of the job and DS member shd be the same - max 8 character - shd not start with a numeric value
+- start of every line is '//' 
+- comment in a program starts with '//*'
+- JCL end with '/*'
+
+
+# line identifier "//" # operand "JOB/EXEC/DD" # parameter
+
+JOB statement:
+    - called as JOBCARD
+    - first statement in any JCL code
+    - jobname shd be 1-8 characters long
+    eg: 
+
+    //SORTJOB JOB 07933t, Evangeline  /* positional parameters
+            CLASS=A,                /* rest all below are keyword parameters
+            REGION=5K, /* amount of address space allocated for the job execution
+            MSGCLASS=A, /* P- print the o/p,  F-Fax the o/p
+            PRTY= 0, /* anything from 0 to 15
+            notify=07933t,144106,&sysuid /* syuid -> person who subit the jobs
+            MSGLEVEL=(2,2)
+            TYPRUN=HOLD, /* SCAN- just syntax check, HOLD- put it on-hold and can be executed late
+            TIME=(50,00)
+            EXEC
+            DD
+
+EXEC statement:
+        - invoke the pr0cedure you want to executed
+        - can have multiple exec statement 
+        SYNTAX: 
+            // stepname EXEC Parameters /* stepname shd be coded from position 3
+        positional parameters for exec:
+            - PGM 
+            - PROC 
+        Keywork parameters for EXEC:
+            - PARM /* pass values to the program
+            - ACCT /* accounting info
+            - REGION /amount of address space to allocate
+
+        eg:
+
+        //SORTJOB JOB 07933t, Evangeline  /* positional parameters
+                CLASS=A,                /* rest all below are keyword parameters
+                REGION=5K, /* amount of address space allocated for the job execution
+                MSGCLASS=A, /* P- print the o/p,  F-Fax the o/p
+                PRTY= 0, /* anything from 0 to 15
+                notify=07933t,144106,&sysuid /* syuid -> person who subit the jobs
+                MSGLEVEL=(2,2)
+                TYPRUN=HOLD, /* SCAN- just syntax check, HOLD- put it on-hold and can be executed late
+                TIME=(50,00)
+                EXEC
+                DD
+        //STEP1 EXEC PROC=CALCPROC /*PGM & PROC are positional parameters 
+                    PARM='ADD 123 321'
+
+DD statement /Dataset Definition
+    - positional params:
+        - *
+        - DUMMY
+        - DATA 
+    - Keywork params 
+        - DSN /*Dataset name
+        - DISP /* disposition
+        - DCB 
+        - SPACE 
+        - UNIT 
+        - VOL 
+        - SYSOUT

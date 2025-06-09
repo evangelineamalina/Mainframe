@@ -1,0 +1,42 @@
+Can connect to Z/OS unix with ssh command
+  -> ssh user@ip 
+  -> exit 
+
+oedit & obrowse
+>tso omvs --> to go to unix
+    > oedit <dataset_name>  --> creates a new file in home directory
+    > just "oedit" will list the unix directory list 
+    > obrowse <dataset> --> browses the DS
+    > just "obrowse" will list the files in the directory 
+    > exit -> to come out of omvs session 
+> can directly run as "tso oedit <ds_name>" without a session 
+
+mkdir:
+- in the "oedit" mode, we can view the directory & file list like unix
+    give command "mkdir <dir_name> 
+
+> oedit <directory>/<file_name>
+
+copy data between mvs and unix services
+-> edit in command "cut all", "paste all" in new file in unix location
+
+oput & oputx 
+oput - to copy from mvs DS to Unix DS 
+- option 6 in ispf, 
+    > oput <src_mvs_DS> <dest_unix_DS>
+opotx - to copy PDS to unix deirectory 
+- option 6
+    > oputx <input_DS> <unix_directory>
+
+oget & ogetx 
+oget - cpy data from unix file to mvs DS 
+- optin 3.4 and get the full path of unix file 
+  - option 6 to run the ogert command
+        >oget <unix_file_path> <DS_name> 
+ogetx - copy the unix directory to mvs PDS
+- option 6 to run the command
+    > ogetx <unix directory> PDS_name
+
+
+Download /upload filed from mainframe to local computer through emulator
+- > file tranfer in cryptoter/or any other emulators
