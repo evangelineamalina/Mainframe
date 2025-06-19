@@ -1,0 +1,14 @@
+GDG - Generation data Group 
+    - Group of files related to each other 
+
+Creating a GDG
+//CREGDG JOB CLASS=A, NOTIFY-$SYSUID, MSGLEVEL=(1,1), MSGCLASS=A,PRTY=15
+//******************************
+//* JCL to create a GDG*********
+//******************************
+//STEP010 EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSIN DD *       #input to the GDG
+        DEFINE GDG(NAME(BANK.CUSTOMER.MONTHLY))  -
+               LIMIT(12)                         -
+               NOEMPTY                           -         #delete only one old item if limit exceeds 12

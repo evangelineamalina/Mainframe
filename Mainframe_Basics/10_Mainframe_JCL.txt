@@ -1,0 +1,45 @@
+JOBLIB:
+    - default location of load module is SYS1.LINKLIB
+    - if not found in default, then give the manual path by:
+        //JOBLIB DD DSN=Herc01.eban.jcl,DISP-SHR 
+        //STEp1 EXEC PGM=ARITHM
+    - shd be mentioned after the JOB statement & before any EXEC statement 
+
+STEPLIB:
+    - shd be provided after any step or an EXEC statement   
+       //steplib DD DSN=herc01.evan.jcl, DISP=shr
+    - STEPLIB will override the JOBLIB file 
+
+JCLLIB:
+    - tell th elocation of JCL code
+     //PROCLOC JCLLIB ORDER=(HERC01.EVAN.JCL, second_location)
+    - this is for JCL code
+
+
+Conditions in JCL:
+    cond = (returncode,operator,stepname)
+    - returncode can be between 0-4095
+    operators:
+        -GT 
+        -LT 
+        -EQ 
+        -NE 
+        -GE 
+        -LE 
+- exucute the step ifn condition is FALSE
+- Don't execute if the condition is TRUE
+
+If yu don't want to execute a step then
+    //STEP3 EXEC PGM=SORT,COND=(0,LE)
+If you  want to always execute a step then
+    //STEP3 EXEC PGM=SORT,COND=(4095,LT)
+Execute a step only if  previous step abend/failed
+    //STEP EXEC PGM=SORT,COND=ONLY
+
+IF statement
+//STEP2 EXEC PGM=SORT
+//CHECK1  if rc=0 THEN 
+//STEP3 EXEC PGM=SORT
+//ELSE
+//STEP4 EXEC PGM=SORT
+//ENDIF

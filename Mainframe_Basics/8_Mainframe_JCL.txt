@@ -78,3 +78,19 @@ DD statement /Dataset Definition
         - UNIT 
         - VOL 
         - SYSOUT
+
+to run a program:
+ - "submit"
+ MAXCC = 0 means successfull execution
+
+ Job Processing:
+ - JES
+ - SPOOL
+
+ Return codes:
+    - varie from 0 - 4095 
+    - 0-> successfull
+    - 4-> success with errors
+    - 8 -> errors
+    - 12 -> severe errors 
+    - 16 -> Major Errors 

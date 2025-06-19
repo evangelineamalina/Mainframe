@@ -1,0 +1,12 @@
+42 Inbuilt functions or intrinsic fns 
+EG: DISPLAY FUNCTIOn SUM(23,43)
+    DISPLAY FUNCTIOn MAX(34,21,45,67,32)
+                     MEAN
+                     REVERSE    
+    COMPUTE ANSWER = FUNCTION MAX(23 54 ) + FUNCTIOn SUM (1 6)
+    DISPLAY FUNCTIOn REM (13 2)
+    DISPLAY FACTORIAL (5) *> 5*4*3*2*1
+            INTEGER (-4.2) *> -5 as o/p
+            INTEGER-PART (-4.3) *> -4 as o/p
+            NUMVAL("      343") *> 343 as o/p
+            RAMDOM(9) *> some random number as output

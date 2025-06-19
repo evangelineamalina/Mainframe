@@ -1,0 +1,50 @@
+DISPLAY statement   
+    - print statment 
+
+MOVE
+    - assigning values to variable
+    - assigning variable to variable
+
+ACCEPT
+    - Accept input from the user
+PERFORM
+    - Call a procedure
+
+
+Execute a Cobol program in ZoS:
+Cocol on mainframe:
+    - need to allocate a dataset
+1. create followig datasets (PDS)
+    - Evan.prac.coblib --> for writing cocol file
+    - Evan.prac.compiler --> for compiler
+    - Evan.prac.loadlib  --> storing load module 
+
+2. create the cobol program
+    Evan.prac.coblib(helloworld)
+cmd: num on std cob --> numbering on standard cobol 
+     hi cob  --> hilight the cocol code 
+
+3. Create a JCM file to compile the cocol program
+    Evan.prac.compiler(cobcompiler)
+     SYSIN - cocol program 
+     SYSLMOD - o/p load module library  
+     SYSLIN - loc of copybook 
+     sample compiler JCL program
+     ****************************************************************
+     //COBCOMP JOB CLASS=A, MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL(1,1)
+     //procloc jcllib order=igy4l0.sigyproc
+     //Step1 EXEC PGM=IGYWCL
+     //cobol.sysin   DD DSN=Evan.prac.coblin(helloworld),DISP=SHR
+     //lked.syslmod  DD DSN=Evan.prac.loadlib(helloworld),DISP=SHR *> final compiler loadlib file
+     /*
+     ****************************************************************
+
+4. Create a JCm to run the compiled loadlib file
+    ****************************************************************
+    //COBCOMP JOB CLASS=A, MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL(1,1)
+    //stpe1 exec pgm=helloworld
+    //steplib dd dsn=Evan.prac.loadlib(helloworld),,DISP=SHR
+    //sysprint dd sysout=*
+    //sysout dd sysout=*
+    /*
+    ***************************************************************  

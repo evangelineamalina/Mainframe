@@ -1,0 +1,44 @@
+Z/oS SDSF:
+    Sustem Display & Search facility
+    - tso sdsf 
+      st
+
+     - owner <user>
+     - owner *
+
+search for a job
+    - s <jbname> 
+    -     ?
+    - p <jobname> #purge/delete
+    - c #cancel 
+    - pre <job_prefix> 
+    - f #find 
+    - 
+
+OUTLIST MVS :
+     option 3.8
+     \
+
+procedures:
+1. Instream procedures: 
+mulriple same step in a program can be reused (like a subroutine) by:
+    - CREPSPR PROC  # create procedure      
+      STEP1 DD DSN=$dname #some functions to create a file with &dname-symbolic parameter 
+              PEND #procedure end 
+      STEP2 EXEC CREPSPR, dname=herc01.evan.ps1
+      STEP3 EXEC CREPSPR, dname=herc01.evan.ps2
+
+    Symbolic parameters: 
+        - used to pass values to the procedure
+        - starts with & and ends with "."
+
+2. cataloges procedure:
+    can be present ouside the same JCL 
+    shd be invoked from a different PS scripts
+//  procloc jcllib order=herc01.evan.jcl1
+    step2 exec creprsr,mname=new # callling a procedure named "creprsr: from herc01.evan.jcl1
+    - this one does not require a job card. just the procedure and the steps 
+
+3. nested procedure:
+    - calling a procedure inside a procedure
+    - can have 15 levels of nested

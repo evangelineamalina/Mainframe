@@ -1,0 +1,143 @@
+COBOL - Common Business oriented language
+Divisions:
+    - Idenification
+        - info abt the program and author
+    - Environment
+        - describe the env in which the pgm runs
+    - Data 
+        - description of data / input/output files 
+    - Pocedure 
+        - COntains algorithm or code of the program
+
+OPENCOBOLIDE
+     - divisions shd start with position #8 in Ide 
+
+#sample Hello world program:
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. helloworld. 
+       REMARKS. this is a practice program 
+       DATE-COMPILED. June 17 2025
+       DATE-WRITTEN. June 16 2025
+
+       PROCEDURE DIVISION.
+           DISPLAY "HELLO WRLD".
+           STOP RUN.
+
+IDENTIFICATION DIVISION:
+    - comes first in every cobol programming
+
+    IDENTIFICATION DIVISION & PROGRAM-ID is mandatory
+
+Code working storage dicision: 
+ DATA DIVISION - used to identify the data associated with the program, such as variables.
+code the PICTURE clause 
+variables are called "data names" or "data items"
+ X- Alphanumeric & special characters
+ 9- numeric
+ S- sign - can be positive/negative numerics
+ V- decimal
+ Z- numeric edited / supress the 0s in filling space / takes less storage than numeric
+
+77 - unrelated variables declaration 
+ level# Variable name
+
+*****************************************
+* SAMPLE Code
+*****************************************\
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  MY-NAME.
+        05  FIRST-NAME PICTURE XX.
+        05  LAST-NAME PICTURE XXXX. *> can also be written as X(4)
+       77  SCHOOL-NAME PICTURE X.
+       01  PHONE PICTURE 9(10).
+       01  MARKS PICTURE s999.
+       01  INCOME PICTURE 9(3)V9(3).
+       01  TAX PICTURE Z,Z9.9(2).
+       PROCEDURE DIVISION.
+           MOVE "Ev" to FIRST-NAME
+           MOVE "AMAL" to LAST-NAME
+           MOVE 1234567890 to PHONE
+           MOVE -233 to MARKS 
+           MOVE 998.230 to INCOME
+           MOVE 201 to TAX
+            DISPLAY INCOME.
+            DISPLAY MY-NAME.
+            DISPLAY PHONE
+            DISPLAY TAX
+            STOP RUN.
+*****************************************************
+
+Code the value clause
+- assigning default value during the declaration phase
+*******************
+* Sample code 
+******************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  MY-VAL PICTURE X(20) VALUE "THIS iS MY VALUE".
+       01  HEIGHT PICTURE 99 VALUE ZEROES. *> assigning 0 initial value ZEROES/SPACES
+       PROCEDURE DIVISION.
+      
+            DISPLAY "My Vlaue is =" MY-VAL
+            DISPLAY "My Height is=" HEIGHT
+            STOP RUN.
+       END PROGRAM YOUR-PROGRAM-NAME.
+*****************************************************
+
+code the group items:
+- grouping the similar items together
+01 DETAILS.  *> group item will not have PICTURE CLAUSE
+    05 NAME PIC X(10)  *> elmentary items only have PICTURE CLAUSE / level numbers will be multiple of 5
+    05 AGE PIC 9(2)
+
+****************************
+* SAMPLE CODE 
+****************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  MY_SCORE.
+           05 MATH PICTURE 9(3).
+           05 PHYSICS PICTURE 9(3).
+           05 BIO PICTURE 9(3).
+       
+       PROCEDURE DIVISION.
+            MOVE 123456 to MY_SCORE.
+            DISPLAY "MATH =" MATH.
+            DISPLAY "PHY  =" PHYSICS.
+            DISPLAY "BIO  =" BIO
+            STOP RUN.
+       END PROGRAM YOUR-PROGRAM-NAME.
+****************************************************************
+
+Code the procedure division:
+***********************************
+* Sample functions code
+***********************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  MY-NAME PICTURE X(15).
+       01  MY-AGE PICTURE 9(2).
+          
+       PROCEDURE DIVISION.
+       000-MAIN-PROCEDURE.
+            PERFORM 100-ACCEPT-VALUES.
+            PERFORM 200-DISPLAY-VALUES.
+            STOP RUN.
+       100-ACCEPT-VALUES.
+           ACCEPT  MY-NAME.
+           ACCEPT  MY-AGE.
+           
+       200-DISPLAY-VALUES.
+           DISPLAY "MY NAME: " MY-NAME.
+           DISPLAY "MY AGE : " MY-AGE.
+       END PROGRAM YOUR-PROGRAM-NAME.
