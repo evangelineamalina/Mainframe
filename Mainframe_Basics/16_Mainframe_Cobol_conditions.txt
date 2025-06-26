@@ -1,0 +1,70 @@
+1. IF condition
+EG program:
+********************************
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  USER-AGE PIC S9(8).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY "Enter the Age og user".
+           ACCEPT USER-AGE.
+           IF USER-AGE > 18
+               DISPLAY "Major"
+           ELSE 
+               DISPLAY "Minor"
+           END-IF.
+            
+            
+           STOP RUN.
+       END PROGRAM YOUR-PROGRAM-NAME.
+************************************
+2. PERFORM
+    PERFORM procedure_name UNTIL condition 
+        .........
+        .........
+    STOP RUN.
+3. PERFORM With TEST AFTER
+4. PERFORM WITH VARYING
+    **************************************
+           IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+     
+       WORKING-STORAGE SECTION.
+       01  I PIC 9(2) VALUE ZEROES.
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           PERFORM 100-DISPLAY-HELLO
+               VARYING I FROM 2 BY 1
+                   UNTIL I>5
+           STOP RUN.
+           
+           100-DISPLAY-HELLO.
+            DISPLAY "Hello world".
+            
+       END PROGRAM YOUR-PROGRAM-NAME.
+    ***************************************
+    5. PERFORM With TIMES Clause
+        *********************************
+               IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+     
+       WORKING-STORAGE SECTION.
+       01  I PIC 9(2) VALUE ZEROES.
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           PERFORM 100-DISPLAY-HELLO 5 TIMES
+ 
+           STOP RUN.
+           
+           100-DISPLAY-HELLO.
+            DISPLAY "Hello world".
+            
+       END PROGRAM YOUR-PROGRAM-NAME.
+       **************************************
+
+       6. EVALUATE STATEMENT
+

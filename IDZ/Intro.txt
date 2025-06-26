@@ -1,0 +1,29 @@
+- Eclipse based IDE for Z
+- connects to host using IDZ listener
+- Stored your TSO user 
+COncepts:
+    - IDZ's workspace
+-CTRL+2 - to split the screen to view the single cbl file in 2 views, we can scroll down in both views
+-F3 key -> to see the declaration of the variable
+
+- Can increse the number of files opened in editor view from windows-perspective 
+- When a DS is open in edit mode, it will be locked for other users.
+- Open Dataset with filters and wildcards
+- Windows- Perspective, we can view the datasets with "Type" or "name"
+- View only specific member for PDS, 'filter name' &  'with name'
+- Filter DS will be there even if we reopen the window, retrieve DS will be there only for that session.
+- Create a new ZoS project with MVS DS and map it to a specific Z region connection / create a new connection from that window
+- Add the components to endevor
+- open a file in a different editor (Cocol, JCL, java, LPEX ISPF)
+- LPEX editor can be mapped to anything (vi, ISPF, emacs, epam) from windows -preferences
+- ALT-R --> for block selection in ISPF 
+- Every feature differes for different editor we choose 
+- Right click and submit a JCL to the specific region 
+- Right click on the edit page select the lines "source" -"format" to format any program 
+- Format will be done as per the preferences we choose in the "windows" - preferences" , in the choosen editor format.
+- Right click in edit --> filter --> copy  - will show all the copybook
+- Right click in edit --> filter --> comments - will shpw only the comment section 
+- Right click on the file in list and show properties, to show the details of the file content. 
+- Right clieck on the edi and "show in" --> to view the "data flow" and other details of the file . 
+    program control flow will show a graphical view of the flow of your cobol program.
+- Right clieck "show in" --> "data element" show the clear feature and dead codes and other imp items 

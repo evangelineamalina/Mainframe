@@ -24,7 +24,7 @@ Cocol on mainframe:
 cmd: num on std cob --> numbering on standard cobol 
      hi cob  --> hilight the cocol code 
 
-3. Create a JCM file to compile the cocol program
+3. Create a JCL file to compile the cobol program
     Evan.prac.compiler(cobcompiler)
      SYSIN - cocol program 
      SYSLMOD - o/p load module library  

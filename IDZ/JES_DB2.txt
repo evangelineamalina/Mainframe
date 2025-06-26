@@ -1,0 +1,7 @@
+- select lines --> right click -> surrond with -- <some condition code>
+- Add base flag for any specific change request, so that any changes that we add will be starting with the base flag
+- selet 2 program files, right click-> comparewith eac other
+- can also compare a file with its own history of changes.
+- Selct a file, right click, replace with and choose the version to replace from the history of versions.
+- CTRL+H to start the search in DataSets . Has multiplesearch options. 
+- Add Bookmarks in the left corner of the cbl file.
